@@ -4,29 +4,63 @@
              x:Class="Assignment4_Smart_UI.Views.First_Page"
              Title="First_Page">
     <VerticalStackLayout>
-        <Label Text="hvbeiuvblv"/>
-        <CollectionView ItemsSource="{Binding items}" >
+        <CollectionView ItemsSource="{Binding Items}"
+                SelectionMode="None"
+                Margin="12">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                         Span="2"
+                         HorizontalItemSpacing="12"
+                         VerticalItemSpacing="12" />
+            </CollectionView.ItemsLayout>
+
             <CollectionView.EmptyView>
-                <Label Text="no items">
-                    
-                </Label>
+                <Label Text="Your fridge is empty!"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               TextColor="Gray"
+               FontSize="16" />
             </CollectionView.EmptyView>
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10"
-                      ColumnDefinitions="*,Auto">
+                    <Border Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 18"
+                    Padding="10"
+                    HeightRequest="190">
 
-                        <Label Text="{Binding name}"
+                        <Grid RowDefinitions="*,Auto,Auto"
+                      RowSpacing="6">
+
+                            <!-- Food image -->
+                            <Image Grid.Row="0"
+                           Source="{Binding Image}"
+                           Aspect="AspectFit"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill" />
+
+                            <!-- Item name -->
+                            <Label Grid.Row="1"
+                           Text="{Binding Name}"
                            FontSize="16"
-                           VerticalOptions="Center" />
+                           FontAttributes="Bold"
+                           TextColor="#263238"
+                           HorizontalTextAlignment="Center"
+                           LineBreakMode="TailTruncation"
+                           MaxLines="1" />
 
-                        <Label Grid.Column="1"
-                           Text="{Binding price}"
-                           FontSize="12"
-                           TextColor="Gray"
-                           VerticalOptions="Center" />
-                        <Image Source="{Binding image}" ></Image>
-                    </Grid>
+                            <!-- Item amount -->
+                            <Label Grid.Row="2"
+                           Text="{Binding Amount}"
+                           FontSize="14"
+                           TextColor="#388E3C"
+                           HorizontalTextAlignment="Center" />
+
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
 

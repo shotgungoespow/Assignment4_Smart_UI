@@ -4,11 +4,13 @@ using System.Text;
 
 namespace Assignment4_Smart_UI.Models
 {
-    internal class Ingredient
+    public class Ingredient
     {
-        public string name;
-        public double price;
-        public string image;
+        public string? Name { get; set; }
+        public int Amount { get; set; }
+        public double Weight { get; set; }
+        public bool Liquid { get; set; }
+        public string? Image { get; set; }
 
     }
 }

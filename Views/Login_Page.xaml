@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment4_Smart_UI.Views.Login_Page"
+             Title="Login_Page">
+    <VerticalStackLayout>
+        <ScrollView>
+            <Grid
+        Padding="24"
+        VerticalOptions="Center"
+        HorizontalOptions="Fill">
+
+                <Border
+            BackgroundColor="White"
+            Stroke="#E2E8F0"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 20"
+            Padding="28"
+            MaximumWidthRequest="420"
+            HorizontalOptions="Center">
+
+                    <VerticalStackLayout Spacing="18">
+
+                        <!-- Header -->
+                        <VerticalStackLayout
+                    Spacing="8"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,12">
+
+                            <Border
+                        BackgroundColor="#DBEAFE"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 30"
+                        HeightRequest="64"
+                        WidthRequest="64"
+                        Padding="16"
+                        HorizontalOptions="Center">
+
+                                <Label
+                            Text="👤"
+                            FontSize="28"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"/>
+                            </Border>
+
+                            <Label
+                        Text="Welcome Back"
+                        FontSize="28"
+                        FontAttributes="Bold"
+                        TextColor="#0F172A"
+                        HorizontalTextAlignment="Center"/>
+
+                            <Label
+                        Text="Sign in to your account"
+                        FontSize="14"
+                        TextColor="#64748B"
+                        HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+
+                        <!-- Username -->
+                        <VerticalStackLayout Spacing="6">
+                            <Label
+                        Text="Email"
+                        FontSize="14"
+                        FontAttributes="Bold"
+                        TextColor="#334155"/>
+
+                            <Entry
+                            x:Name="EmailEntry"
+                            Placeholder="Enter your Email"
+                            FontSize="14"
+                            TextColor="#0F172A"
+                            PlaceholderColor="#94A3B8"
+                            BackgroundColor="Transparent"
+                            ClearButtonVisibility="WhileEditing"/>
+                            <!-- Username error -->
+                            <Label
+                            x:Name="EmailError"
+                            Text=""
+                            FontSize="12"
+                            TextColor="#DC2626"
+                            MinimumHeightRequest="16"
+                            IsVisible="False"/>
+                        </VerticalStackLayout>
+
+                        <!-- Password -->
+                        <VerticalStackLayout Spacing="6">
+                            <Label
+                        Text="Password"
+                        FontSize="14"
+                        FontAttributes="Bold"
+                        TextColor="#334155"/>
+
+                            <Entry
+                            x:Name="PasswordEntry"
+                            Placeholder="Enter your password"
+                            IsPassword="True"
+                            FontSize="14"
+                            TextColor="#0F172A"
+                            PlaceholderColor="#94A3B8"
+                            BackgroundColor="Transparent"/>
+                            
+                            <!-- Password error -->
+                            <Label
+                            x:Name="PasswordError"
+                            FontSize="12"
+                            TextColor="#DC2626"
+                            MinimumHeightRequest="16"
+                            IsVisible="False"/>
+                        </VerticalStackLayout>
+
+                        <Grid ColumnDefinitions="*,Auto"
+                      ColumnSpacing="8">
+                            
+                        <Button
+                        Text="Forgot password?"
+                        FontSize="12"
+                        TextColor="#2563EB"
+                        BackgroundColor="Transparent"
+                        Padding="10"
+                        HorizontalOptions="Center"
+                        Clicked="OnForgotPasswordClicked"/>
+                        </Grid>
+
+                        <!-- Login button -->
+                        <Button
+                    x:Name="LoginButton"
+                    Text="Login"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    BackgroundColor="#2563EB"
+                    CornerRadius="10"
+                    HeightRequest="48"
+                    Clicked="OnLoginClicked"/>
+
+                        <!-- Status message -->
+                        <Label
+                    x:Name="StatusLabel"
+                    Text=""
+                    FontSize="13"
+                    TextColor="#DC2626"
+                    HorizontalTextAlignment="Center"
+                    IsVisible="False"/>
+
+                        <!-- Sign up -->
+                        <HorizontalStackLayout
+                    HorizontalOptions="Center"
+                    Spacing="4">
+
+                            <Label
+                        Text="Don't have an account?"
+                        FontSize="12"
+                        TextColor="#64748B"
+                        VerticalTextAlignment="Center"/>
+
+                            <Label
+                        Text="Sign up"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        TextColor="#2563EB"
+                        VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSignUpTapped"
+                                />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

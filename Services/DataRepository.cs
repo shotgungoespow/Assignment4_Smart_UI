@@ -9,9 +9,9 @@ namespace Assignment4_Smart_UI.Services
     {
         public static List<Ingredient> ingredients = new List<Ingredient>()
         {
-            new Ingredient() { name = "Milk", price = 5, image = "milk.jpg" },
-            new Ingredient() { name = "Egg", price = 2, image = "egg.jpg" },
-            new Ingredient() { name = "Bread", price = 7, image = "bread.jpg" }
+            new Ingredient() { Name = "Milk", Amount = 5, Weight = 2.4, Liquid = true , Image = "milk.jpg" },
+            new Ingredient() { Name = "Egg", Amount = 2, Weight = 1.1, Liquid = false , Image = "eggs.jpg" },
+            new Ingredient() { Name = "Bread", Amount = 7, Weight = 3.3, Liquid = false , Image = "bread.jpg" }
 
 
         };
@@ -19,5 +19,10 @@ namespace Assignment4_Smart_UI.Services
         {
             return ingredients;
         }
+        public static List<User> users = new List<User>()
+        {
+            new User() {  Name = "Yair Gueta", Email = "yair.gueta.09@gmail.com", Password = "sheleg2009", FName = "Gueta", PName = "Yair" },
+            new User() {  Name = "Mody GlimFeather", Email = "Mody.Glimfeather@gmail.com", Password = "Rock123", FName = "Glimfeather", PName = "Mody" }
+        };
     }
 }

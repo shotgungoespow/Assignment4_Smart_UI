@@ -7,6 +7,10 @@
     Title="Assignment4_Smart_UI">
 
     <ShellContent
+    Title="Login"
+    ContentTemplate="{DataTemplate local:Login_Page}"
+    Route="Login_Page" />
+    <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:First_Page}"
         Route="First_Page" />
@@ -15,5 +19,7 @@
     Title="test"
     ContentTemplate="{DataTemplate local:Second_Page}"
     Route="Second_Page" />
+    
+    
 
 </Shell>
