@@ -79,8 +79,7 @@
                             Text=""
                             FontSize="12"
                             TextColor="#DC2626"
-                            MinimumHeightRequest="16"
-                            IsVisible="False"/>
+                            MinimumHeightRequest="16"/>
                         </VerticalStackLayout>
 
                         <!-- Password -->
@@ -99,29 +98,15 @@
                             TextColor="#0F172A"
                             PlaceholderColor="#94A3B8"
                             BackgroundColor="Transparent"/>
-                            
+
                             <!-- Password error -->
                             <Label
                             x:Name="PasswordError"
                             FontSize="12"
                             TextColor="#DC2626"
-                            MinimumHeightRequest="16"
-                            IsVisible="False"/>
+                            MinimumHeightRequest="16"/>
                         </VerticalStackLayout>
-
-                        <Grid ColumnDefinitions="*,Auto"
-                      ColumnSpacing="8">
-                            
-                        <Button
-                        Text="Forgot password?"
-                        FontSize="12"
-                        TextColor="#2563EB"
-                        BackgroundColor="Transparent"
-                        Padding="10"
-                        HorizontalOptions="Center"
-                        Clicked="OnForgotPasswordClicked"/>
-                        </Grid>
-
+              
                         <!-- Login button -->
                         <Button
                     x:Name="LoginButton"

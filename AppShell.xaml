@@ -20,6 +20,11 @@
     ContentTemplate="{DataTemplate local:Second_Page}"
     Route="Second_Page" />
     
+    <ShellContent
+    Title="test"
+    ContentTemplate="{DataTemplate local:Register_Page}"
+    Route="Register_Page" />
+    
     
 
 </Shell>
