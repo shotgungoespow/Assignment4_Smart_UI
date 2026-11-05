@@ -82,7 +82,7 @@
                             PlaceholderColor="#94A3B8"
                             BackgroundColor="Transparent"
                             ClearButtonVisibility="WhileEditing"
-                            ReturnType="Next"/>
+                            />
 
                             <Label
                             x:Name="EmailError"

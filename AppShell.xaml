@@ -6,24 +6,28 @@
     xmlns:local="clr-namespace:Assignment4_Smart_UI.Views"
     Title="Assignment4_Smart_UI">
 
+
+    <ShellContent
+    Title="test"
+    ContentTemplate="{DataTemplate local:Register_Page}"
+    Route="Register_Page" />
+    
     <ShellContent
     Title="Login"
     ContentTemplate="{DataTemplate local:Login_Page}"
     Route="Login_Page" />
+    
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:First_Page}"
-        Route="First_Page" />
+    Title="Home"
+    ContentTemplate="{DataTemplate local:First_Page}"
+    Route="First_Page" />
 
     <ShellContent
     Title="test"
     ContentTemplate="{DataTemplate local:Second_Page}"
     Route="Second_Page" />
     
-    <ShellContent
-    Title="test"
-    ContentTemplate="{DataTemplate local:Register_Page}"
-    Route="Register_Page" />
+    
     
     
 
