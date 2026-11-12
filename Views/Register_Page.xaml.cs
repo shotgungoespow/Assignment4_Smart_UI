@@ -12,7 +12,7 @@ public partial class Register_Page : ContentPage
 	}
 	public async void OnRegisterClicked(object sender, EventArgs e)
 	{
-		string email = EmailEntry.Text;
+		string email = Email_Entry.Text;
 		string password = PasswordEntry.Text;
 		string confirm_password = ConfirmPasswordEntry.Text;
 		Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");

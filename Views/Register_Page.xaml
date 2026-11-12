@@ -74,7 +74,8 @@
                             TextColor="#334155"/>
 
                             <Entry
-                            Text="{Binding EmailEntry}"
+                            x:Name="Email_Entry"
+                            Text=""
                             Placeholder="Enter your email"
                             Keyboard="Email"
                             FontSize="14"

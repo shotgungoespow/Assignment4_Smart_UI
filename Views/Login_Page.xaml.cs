@@ -6,6 +6,7 @@ namespace Assignment4_Smart_UI.Views;
 
 public partial class Login_Page : ContentPage
 {
+	
 	public Login_Page()
 	{
 		InitializeComponent();

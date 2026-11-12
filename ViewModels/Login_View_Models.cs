@@ -14,21 +14,9 @@ namespace Assignment4_Smart_UI.ViewModels
 {
     internal class Login_View_Models : Base_View_Model
     {
-        // Event required for notifying the UI
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected void OnPropertyChanged(
-            [CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(
-                this,
-                new PropertyChangedEventArgs(propertyName));
-        }
-
-
+        #region PROPERTIES
         // Email property
-        private string email = "";
-
+        private string email;
         public string Email
         {
             get => email;
@@ -44,8 +32,7 @@ namespace Assignment4_Smart_UI.ViewModels
 
 
         // Password property
-        private string password = "";
-
+        private string password;
         public string Password
         {
             get => password;
@@ -61,8 +48,7 @@ namespace Assignment4_Smart_UI.ViewModels
 
 
         // Email error property
-        private string emailError = "";
-
+        private string emailError;
         public string EmailError
         {
             get => emailError;
@@ -78,8 +64,7 @@ namespace Assignment4_Smart_UI.ViewModels
 
 
         // Password error property
-        private string passwordError = "";
-
+        private string passwordError;
         public string PasswordError
         {
             get => passwordError;
@@ -93,62 +78,30 @@ namespace Assignment4_Smart_UI.ViewModels
             }
         }
 
-
-        // Status message
-        private string statusMessage = "";
-
-        public string StatusMessage
+        private string msgColor;
+        public string MsgColor
         {
-            get => statusMessage;
+            get => msgColor;
             set
             {
-                if (statusMessage != value)
+                if (msgColor != value)
                 {
-                    statusMessage = value;
+                    msgColor = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-
-        // Status color
-        private Color statusColor = Colors.Red;
-
-        public Color StatusColor
-        {
-            get => statusColor;
-            set
-            {
-                if (statusColor != value)
-                {
-                    statusColor = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        #endregion
 
 
-        // Status visibility
-        private bool isStatusVisible;
-
-        public bool IsStatusVisible
-        {
-            get => isStatusVisible;
-            set
-            {
-                if (isStatusVisible != value)
-                {
-                    isStatusVisible = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-
+        #region commands
         // Commands
         public ICommand LoginCommand { get; }
         public ICommand SignUpCommand { get; }
 
+
+        #endregion
 
         // Constructor
         public Login_View_Models()
@@ -158,59 +111,50 @@ namespace Assignment4_Smart_UI.ViewModels
         }
 
 
+        #region methods
+
         // Login logic
         private async Task Login()
         {
             EmailError = "";
             PasswordError = "";
-            StatusMessage = "";
-            IsStatusVisible = false;
+            bool loginValid = true;
 
             if (string.IsNullOrWhiteSpace(Email))
             {
                 EmailError = "Please enter an email";
+                loginValid  = false;
             }
 
             if (string.IsNullOrWhiteSpace(Password))
             {
                 PasswordError = "Please enter a password";
+                loginValid= false;
             }
 
-            if (EmailError != "" || PasswordError != "")
-            {
-                return;
-            }
-
-            User? matchedUser = DataRepository.users.FirstOrDefault(
-                user => user.Email == Email &&
-                        user.Password == Password
-            );
-
+            User? matchedUser = DataRepository.users.FirstOrDefault(user => (user.Email).ToLower() == Email.ToLower());
+            
             if (matchedUser == null)
             {
-                bool emailExists = DataRepository.users.Any(
-                    user => user.Email == Email
-                );
-
-                if (!emailExists)
+                EmailError = "Incorrect Email";
+                loginValid = false;
+            }
+            else
+            {
+                if (matchedUser.Password != password)
                 {
-                    EmailError = "Incorrect email address";
+                    PasswordError = "Incorrect Password";
+                    loginValid = false;
                 }
-                else
-                {
-                    PasswordError = "Incorrect password";
-                }
-
-                return;
             }
 
-            StatusMessage = "Login Success";
-            StatusColor = Colors.Green;
-            IsStatusVisible = true;
-
-            await Task.Delay(1000);
-
-            await Shell.Current.GoToAsync("//First_Page");
+            if (loginValid)
+            {
+                
+                passwordError = "Login Successful";
+                await Task.Delay(1000);
+                await Shell.Current.GoToAsync("//First_Page");
+            }
         }
 
 
@@ -220,16 +164,14 @@ namespace Assignment4_Smart_UI.ViewModels
             EmailError = "";
             PasswordError = "";
 
-            StatusMessage = "Moving to Register Page";
-            StatusColor = Colors.Green;
-            IsStatusVisible = true;
+            
 
             await Task.Delay(1000);
 
             await Shell.Current.GoToAsync("//Register_Page");
         }
 
-
+        #endregion
 
 
     }

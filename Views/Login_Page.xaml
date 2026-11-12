@@ -103,7 +103,7 @@
                             <Label
                             Text="{Binding Password_Error}"
                             FontSize="12"
-                            TextColor="#DC2626"
+                            TextColor="{Binding MsgColor}"
                             MinimumHeightRequest="16"/>
                         </VerticalStackLayout>
               
@@ -119,13 +119,7 @@
                     HeightRequest="48"
                     Command="{Binding LoginCommand}"/>
 
-                        <!-- Status message -->
-                        <Label
-                    Text="{Binding StatusMessage}"
-                    FontSize="13"
-                    TextColor="#DC2626"
-                    HorizontalTextAlignment="Center"
-                    IsVisible="False"/>
+                        
 
                         <!-- Sign up -->
                         <HorizontalStackLayout

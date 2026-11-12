@@ -20,11 +20,11 @@ namespace Assignment4_Smart_UI.ViewModels
             }
 
             backingfield = value;
-            OnpropertyChanged(propertyName);
+            OnPropertyChanged(propertyName);
             return true;
         }
 
-        protected void OnpropertyChanged([CallerMemberName] string? propertyName = null)
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
