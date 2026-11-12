@@ -72,14 +72,14 @@
                             TextColor="#0F172A"
                             PlaceholderColor="#94A3B8"
                             BackgroundColor="Transparent"
-                            ClearButtonVisibility="WhileEditing"
-                            Text="{Binding Email}"/>
+                            ClearButtonVisibility="WhileEditing"/>
+
                             <!-- Username error -->
-                            <Label
-                            Text="{Binding EmailError}"
-                            FontSize="12"
-                            TextColor="#DC2626"
-                            MinimumHeightRequest="16"/>
+                                <Label
+                                Text="{Binding EmailError}"
+                                FontSize="12"
+                                TextColor="#DC2626"
+                                MinimumHeightRequest="16"/>
                         </VerticalStackLayout>
 
                         <!-- Password -->
@@ -97,8 +97,7 @@
                             FontSize="14"
                             TextColor="#0F172A"
                             PlaceholderColor="#94A3B8"
-                            BackgroundColor="Transparent"
-                            Text="{Binding Password}"/>
+                            BackgroundColor="Transparent"/>
 
                             <!-- Password error -->
                             <Label
