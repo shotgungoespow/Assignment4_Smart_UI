@@ -1,5 +1,6 @@
-using Assignment4_Smart_UI.Services;
 using Assignment4_Smart_UI.Models;
+using Assignment4_Smart_UI.Services;
+using Assignment4_Smart_UI.ViewModels;
 
 namespace Assignment4_Smart_UI.Views;
 
@@ -8,7 +9,7 @@ public partial class Login_Page : ContentPage
 	public Login_Page()
 	{
 		InitializeComponent();
-		BindingContext = new ViewModels.Login_View_Models();
+        BindingContext = new Login_View_Models();
     }
 	//private async void OnLoginClicked(object sender, EventArgs e)
 	//{
@@ -67,3 +68,14 @@ public partial class Login_Page : ContentPage
  //       await Shell.Current.GoToAsync("//Register_Page");
  //   }
 }
+
+
+
+
+
+
+//3.14159
+//mecha'amem li
+//מצמם לך?
+//וואלה כע
+//

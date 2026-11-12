@@ -66,6 +66,7 @@
                         TextColor="#334155"/>
 
                             <Entry
+                            Text="{Binding Email_Entry}"
                             Placeholder="Enter your Email"
                             FontSize="14"
                             TextColor="#0F172A"
@@ -90,6 +91,7 @@
                         TextColor="#334155"/>
 
                             <Entry
+                            Text="{Binding Password_Entry}"
                             Placeholder="Enter your password"
                             IsPassword="True"
                             FontSize="14"
@@ -100,7 +102,7 @@
 
                             <!-- Password error -->
                             <Label
-                            Text="{Binding PasswordError}"
+                            Text="{Binding Password_Error}"
                             FontSize="12"
                             TextColor="#DC2626"
                             MinimumHeightRequest="16"/>
