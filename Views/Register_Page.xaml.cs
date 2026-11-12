@@ -13,8 +13,7 @@ public partial class Register_Page : ContentPage
 		string email = EmailEntry.Text;
 		string password = PasswordEntry.Text;
 		string confirm_password = ConfirmPasswordEntry.Text;
-        Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-        Match match = regex.Match(email);
+        
 
 
         EmailError.Text = "";
@@ -24,7 +23,11 @@ public partial class Register_Page : ContentPage
         if (email == null || email == "")
         {
             EmailError.Text = "please enter an email";
+            return;
         }
+
+        Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        Match? match = regex.Match(email);
 
         if (!match.Success)
         {

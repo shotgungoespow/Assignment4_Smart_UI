@@ -66,17 +66,16 @@
                         TextColor="#334155"/>
 
                             <Entry
-                            x:Name="EmailEntry"
                             Placeholder="Enter your Email"
                             FontSize="14"
                             TextColor="#0F172A"
                             PlaceholderColor="#94A3B8"
                             BackgroundColor="Transparent"
-                            ClearButtonVisibility="WhileEditing"/>
+                            ClearButtonVisibility="WhileEditing"
+                            Text="{Binding Email}"/>
                             <!-- Username error -->
                             <Label
-                            x:Name="EmailError"
-                            Text=""
+                            Text="{Binding EmailError}"
                             FontSize="12"
                             TextColor="#DC2626"
                             MinimumHeightRequest="16"/>
@@ -91,17 +90,17 @@
                         TextColor="#334155"/>
 
                             <Entry
-                            x:Name="PasswordEntry"
                             Placeholder="Enter your password"
                             IsPassword="True"
                             FontSize="14"
                             TextColor="#0F172A"
                             PlaceholderColor="#94A3B8"
-                            BackgroundColor="Transparent"/>
+                            BackgroundColor="Transparent"
+                            Text="{Binding Password}"/>
 
                             <!-- Password error -->
                             <Label
-                            x:Name="PasswordError"
+                            Text="{Binding PasswordError}"
                             FontSize="12"
                             TextColor="#DC2626"
                             MinimumHeightRequest="16"/>
@@ -117,12 +116,11 @@
                     BackgroundColor="#2563EB"
                     CornerRadius="10"
                     HeightRequest="48"
-                    Clicked="OnLoginClicked"/>
+                    Command="{Binding LoginCommand}"/>
 
                         <!-- Status message -->
                         <Label
-                    x:Name="StatusLabel"
-                    Text=""
+                    Text="{Binding StatusMessage}"
                     FontSize="13"
                     TextColor="#DC2626"
                     HorizontalTextAlignment="Center"
@@ -130,8 +128,8 @@
 
                         <!-- Sign up -->
                         <HorizontalStackLayout
-                    HorizontalOptions="Center"
-                    Spacing="4">
+                        HorizontalOptions="Center"
+                        Spacing="4">
 
                             <Label
                         Text="Don't have an account?"
@@ -145,10 +143,9 @@
                         FontAttributes="Bold"
                         TextColor="#2563EB"
                         VerticalTextAlignment="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnSignUpTapped"
-                                />
-                                </Label.GestureRecognizers>
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+                        </Label.GestureRecognizers>
                             </Label>
                         </HorizontalStackLayout>
 
