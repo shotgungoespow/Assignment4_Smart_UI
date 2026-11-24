@@ -47,20 +47,12 @@ public partial class Register_Page : ContentPage
 		}
 		else
 		{
-			ConfirmPasswordError.TextColor = Colors.Green;
-			ConfirmPasswordError.Text = "Register Succes";
-			await Task.Delay(1000);
 			await Shell.Current.GoToAsync("//First_Page");
 		}
 
 	}
 	public async void OnLoginTapped(object sender, EventArgs e)
 	{
-		ConfirmPasswordError.Text = "";
-		ConfirmPasswordError.TextColor = Colors.Green;
-		ConfirmPasswordError.Text = "Moving to Login Page";
-		await Task.Delay(1000);
 		await Shell.Current.GoToAsync("//Login_Page");
-
 	}
 }

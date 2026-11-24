@@ -24,5 +24,22 @@ namespace Assignment4_Smart_UI.Services
             new User() {  Name = "Yair Gueta", Email = "yair.gueta.09@gmail.com", Password = "sheleg2009", FName = "Gueta", PName = "Yair" },
             new User() {  Name = "Mody GlimFeather", Email = "Mody.Glimfeather@gmail.com", Password = "Rock123", FName = "Glimfeather", PName = "Mody" }
         };
+        public async static Task<int> CheckUserAuth(string email, string password)
+        {
+            User? matchedUser = users.FirstOrDefault(users => ( users.Email).ToLower() == email.ToLower());
+            if (matchedUser == null)
+            {
+                return 2;
+            }
+            else if (matchedUser.Password != password)
+            {   
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
     }
 }

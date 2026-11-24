@@ -1,5 +1,6 @@
 ﻿using Assignment4_Smart_UI.Models;
 using Assignment4_Smart_UI.Services;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using System;
@@ -116,45 +117,41 @@ namespace Assignment4_Smart_UI.ViewModels
         // Login logic
         private async Task Login()
         {
+            string check = email;
+            string second_check = password;
             EmailError = "";
             PasswordError = "";
-            bool loginValid = true;
 
             if (string.IsNullOrWhiteSpace(Email))
             {
                 EmailError = "Please enter an email";
-                loginValid  = false;
             }
 
             if (string.IsNullOrWhiteSpace(Password))
             {
                 PasswordError = "Please enter a password";
-                loginValid= false;
+                return;
             }
 
-            User? matchedUser = DataRepository.users.FirstOrDefault(user => (user.Email).ToLower() == Email.ToLower());
-            
-            if (matchedUser == null)
+            int status = await DataRepository.CheckUserAuth(email, password);
+            if(status == 0) { }
+            else if (status == 1)
+            {
+                PasswordError = "Incorrect Password";
+                return;
+            }
+            else if (status == 2)
             {
                 EmailError = "Incorrect Email";
-                loginValid = false;
+                return;
             }
             else
             {
-                if (matchedUser.Password != password)
-                {
-                    PasswordError = "Incorrect Password";
-                    loginValid = false;
-                }
+                EmailError = "Incorrect Email";
+                PasswordError = "Incorrect Password";
             }
 
-            if (loginValid)
-            {
-                
-                passwordError = "Login Successful";
-                await Task.Delay(1000);
-                await Shell.Current.GoToAsync("//First_Page");
-            }
+            await Shell.Current.GoToAsync("//First_Page");
         }
 
 
@@ -163,11 +160,6 @@ namespace Assignment4_Smart_UI.ViewModels
         {
             EmailError = "";
             PasswordError = "";
-
-            
-
-            await Task.Delay(1000);
-
             await Shell.Current.GoToAsync("//Register_Page");
         }
 
